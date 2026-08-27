@@ -1,0 +1,32 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;600&family=Song+Myung&display=swap");
+@import "tailwindcss";
+@theme {
+  --color-bg: #0c0a08; --color-fg: #f3ece3; --color-muted: #9a8f82; --color-subtle: #6e655c;
+  --color-surface: #171310; --color-elevated: #221c18; --color-border: #3a322c;
+  --color-accent: #b54a3c; --color-accent-foreground: #f3ece3; --color-hanji: #f3ece3; --color-ink: #0c0a08;
+  --font-sans: "Noto Sans KR", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Song Myung", serif;
+}
+html, body, #root { min-height: 100%; background: var(--color-bg); color: var(--color-fg); font-family: var(--font-sans); }
+.hanji { background: color-mix(in srgb, var(--color-hanji) 18%, transparent); box-shadow: 0 0 0 1px color-mix(in srgb, var(--color-hanji) 28%, transparent); }
+.door-pulse { animation: door 2.2s ease-in-out infinite; }
+.wait-pulse { animation: wick 2s ease-in-out infinite; }
+@keyframes door { 0%,100%{box-shadow:0 0 0 1px rgba(181,74,60,.35)} 50%{box-shadow:0 0 0 3px rgba(181,74,60,.75)} }
+@keyframes wick { 0%,100%{opacity:.7} 50%{opacity:1} }
+@media (prefers-reduced-motion: reduce) { .door-pulse, .wait-pulse { animation: none; } }
+.session-large { font-size: 1.15rem; }
+.session-xl { font-size: 1.28rem; }
+.brand-pill {
+  position: fixed; top: .75rem; left: 50%; transform: translateX(-50%); z-index: 50;
+  border-radius: 999px; padding: .35rem .9rem;
+  background: color-mix(in srgb, #0c0a08 70%, transparent); border: 1px solid #3a322c;
+  font-size: 11px; letter-spacing: .18em; color: #9a8f82;
+}
+.pip-cam {
+  position: fixed; right: .75rem; bottom: calc(5.5rem + env(safe-area-inset-bottom));
+  z-index: 35; width: 72px; height: 96px; border-radius: .5rem;
+  border: 1px solid #3a322c; background: linear-gradient(160deg, #2a1814, #0c0a08);
+  box-shadow: 0 8px 24px rgba(0,0,0,.45);
+}
+.time-bar { height: 2px; background: #3a322c; border-radius: 999px; overflow: hidden; }
+.time-bar > span { display: block; height: 100%; transition: width .8s linear; }
